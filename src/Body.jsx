@@ -1,16 +1,23 @@
+import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
+
+const LazyLandingPage = lazy(() => import("./pages/LandingPage"));
+import Spinner from './components/Spinner'
+
 function Body() {
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: <LandingPage />,
+      element: (
+        <Suspense fallback={<Spinner/>}>
+          <LazyLandingPage />
+        </Suspense>
+      ),
     },
   ]);
 
-  return  <RouterProvider router={appRouter} />
-
+  return <RouterProvider router={appRouter} />;
 }
 
 export default Body;

@@ -1,10 +1,8 @@
 import Body from "./Body";
-import Banner from './components/Banner'
 
 const App = () => {
   return (
-    <div className="bg-hero-bg  bg-no-repeat bg-cover ">
-    {/* <Banner/> */}
+    <div className="bg-hero-bg">
       <Body />
     </div>
   );

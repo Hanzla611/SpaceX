@@ -4,6 +4,7 @@ import SearchForm from "../components/SearchForm";
 import Banner from "../components/Banner";
 import RocketGrid from "../components/RocketGrid";
 import RocketPopup from "../components/Modal";
+import Spinner from "../components/Spinner";
 
 function LandingPage() {
   const [rockets, setRockets] = useState([]);
@@ -54,7 +55,7 @@ function LandingPage() {
         </div>
       </section>
       <hr className="w-1/6 mx-auto my-8 mb-20 border-gray-200" />
-      {loading && <p>Loading...</p>}
+      {loading && <p><Spinner/></p>}
 
       {error && <p>Error: {error}</p>}
 
@@ -62,7 +63,7 @@ function LandingPage() {
         {rockets.length > 0 &&
           rockets.map((rocket) => (
             <>
-              <div key={rocket.id} onClick={() => handleClick(rocket)}>
+              <div className="cursor-pointer" key={rocket.id} onClick={() => handleClick(rocket)}>
                 <RocketGrid details={rocket} src={rocket?.flickr_images[0]} />
               </div>
             </>

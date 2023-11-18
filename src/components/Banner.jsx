@@ -1,4 +1,3 @@
-// components/Banner.jsx
 const Banner = () => {
   return (
     <>
