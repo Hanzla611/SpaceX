@@ -1,5 +1,3 @@
-// LandingPage.js
-
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import SearchForm from "../components/SearchForm";
@@ -60,21 +58,12 @@ function LandingPage() {
 
       {error && <p>Error: {error}</p>}
 
-      <div className="flex px-44 pb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 px-12 pb-12">
         {rockets.length > 0 &&
           rockets.map((rocket) => (
             <>
-              <div
-                className="flex w-screen"
-                key={rocket.id}
-                onClick={() => handleClick(rocket)}
-              >
-                <RocketGrid
-                  className="cursor-pointer"
-                  name={rocket.name}
-                  src={rocket?.flickr_images[0]}
-                  handleClose={handleClose}
-                />
+              <div key={rocket.id} onClick={() => handleClick(rocket)}>
+                <RocketGrid details={rocket} src={rocket?.flickr_images[0]} />
               </div>
             </>
           ))}
