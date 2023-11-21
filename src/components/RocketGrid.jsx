@@ -13,7 +13,7 @@ function RocketGrid({ details, src }) {
           <p className="font-bold text-6xl mb-1">{details?.name}</p>
           {/* <p className=" text-5xl mb-1">{details?.company}</p> */}
           <p className=" text-5xl mb-1">
-            Status: {details?.status === true ? "active" : "inactive"}
+            Status: {details?.active === true ? "active" : "inactive"}
           </p>
           <p className=" text-2xl mb-1">{details?.description}</p>
         <p className="font-semibold text-2xl mb-1">Success rate:{details.success_rate_pct}%</p>
